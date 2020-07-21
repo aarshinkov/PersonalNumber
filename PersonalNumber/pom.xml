@@ -7,6 +7,7 @@
     <groupId>com.aarshinkov.projects</groupId>
     <artifactId>personal-number</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <build>
         <plugins>
             <plugin>

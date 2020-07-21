@@ -14,7 +14,8 @@ public class PersonalNumber {
         this.personalNumber = personalNumber;
         createPersonalNumberArray();
         if (!isControlNumberValid()) {
-            throw new Exception("This personal number is not valid. Control number does not match!");
+//            throw new Exception("This personal number is not valid. Control number does not match!");
+            throw new Exception("Въведеното ЕГН е невалидно. Контролното число е невалидно!");
         }
         defineDOB();
         defineRegion();
@@ -27,7 +28,8 @@ public class PersonalNumber {
         int pnArrLength = personalNumber.length();
 
         if (pnArrLength != 10) {
-            throw new Exception("This personal number is not valid. It must consist of 10 digits!");
+//            throw new Exception("This personal number is not valid. It must consist of 10 digits!");
+            throw new Exception("Въведеното ЕГН е невалидно. Трябва да съдържа 19 цифри!");
         }
 
         for (int i = 0; i < pnArrLength; i++) {
@@ -116,14 +118,13 @@ public class PersonalNumber {
             controlNumber = 0;
         }
 
-        System.out.println(controlNumber);
-
         return controlNumber.equals(pnArray[9]);
     }
 
     private String getMonth(Integer month) throws Exception {
         if (month < 1 || month > 12) {
-            throw new Exception("Invalid month. The month must be between 1 and 12");
+//            throw new Exception("Invalid month. The month must be between 1 and 12 incl.");
+            throw new Exception("Невалиден месец. Месецът трябва да е между 1 и 12 вкл.");
         }
         switch (month) {
             case 1:
@@ -153,6 +154,13 @@ public class PersonalNumber {
             default:
                 return "";
         }
+    }
+
+    public void printInformation() throws Exception {
+        System.out.println("Информация:");
+        System.out.println("Дата на раждане: " + getDob());
+        System.out.println("Област: " + getRegion());
+        System.out.println("Пол: " + getGender());
     }
 
     public String getPersonalNumber() {
